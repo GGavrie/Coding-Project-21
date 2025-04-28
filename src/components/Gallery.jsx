@@ -1,20 +1,14 @@
-// Import required dependencies
-import { useEffect } from 'react';
 import TourCard from './TourCard';
 
-// Gallery component that displays a grid of tour cards
+// Create a gallery that maps over the tours array and renders TourCard for each
 const Gallery = ({ tours, onRemove }) => {
-  // Log when component renders (for debugging)
-  useEffect(() => {
-    console.log('Gallery rendered');
-  }, []);
-
   return (
     // Container for the gallery grid
     <div className="gallery">
       {/* Map through tours array and render a TourCard component for each tour */}
       {tours.map((tour) => (
-        <TourCard key={tour.id} {...tour} onRemove={onRemove} />
+        // Pass tour data and the remove function (renamed to match TourCard prop)
+        <TourCard key={tour.id} {...tour} removeTour={onRemove} />
       ))}
     </div>
   );
